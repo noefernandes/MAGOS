@@ -39,6 +39,8 @@ stdexcept
 -
 iostream
 -
+cstring
+-
 ../include/canvas.h
 /home/noe/Downloads/Canvas/dev_canvas/include/canvas.h
 
