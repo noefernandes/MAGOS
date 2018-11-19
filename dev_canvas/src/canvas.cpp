@@ -5,6 +5,7 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <cstring>
 
 #include "../include/canvas.h"
 
@@ -20,7 +21,9 @@ namespace canvas {
         m_width = clone.m_width;
         m_height = clone.m_height;
         m_line_thikness = clone.m_line_thikness;
-        m_pixels = clone.buffer();
+        delete m_pixels;
+        m_pixels = new unsigned char[clone.m_height * clone.m_width * 3];
+        std::memmove(m_pixels, clone.m_pixels, ( clone.m_height * clone.m_width * 3 ));
     }
 
 
@@ -32,7 +35,16 @@ namespace canvas {
     {
         // TODO: incompleto
 
+        
+        delete m_pixels;
+        m_pixels = new unsigned char[source.m_height * source.m_width * 3];
+        std::memmove( m_pixels, source.m_pixels, ( source.m_height * source.m_width * 3 ) );
+        m_width = source.m_width;
+        m_height = source.m_height;
+        m_line_thikness = source.m_line_thikness;
+
         return *this;
+
     }
 
     void Canvas::clear( const Color& color )

@@ -34,6 +34,7 @@ int main(void)
     auto height = c.height();
     auto pixels = c.buffer(); // Ponteiro para o vetor de bytes representando a imagem.
 
+
     // Invocando a função de gravação da biblioteca STB para gravar PNG.
     stbi_write_png_compression_level = 0;    // defaults to 8; set to higher for more compression
     stbi_write_png( "teste.png",      // file name
@@ -41,5 +42,4 @@ int main(void)
                 3,                    // # of channels per pixel
                 pixels,               // the pixels
                 width*3)  ;           // length of a row (in bytes), see above.
-
 }
