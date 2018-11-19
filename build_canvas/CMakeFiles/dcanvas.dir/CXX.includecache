@@ -34,6 +34,14 @@ math.h
 assert.h
 -
 
+/home/noe/Downloads/Canvas/dev_canvas/src/canvas.cpp
+stdexcept
+-
+iostream
+-
+../include/canvas.h
+/home/noe/Downloads/Canvas/dev_canvas/include/canvas.h
+
 /home/noe/Downloads/Canvas/dev_canvas/src/driver_canvas.cpp
 iostream
 -
