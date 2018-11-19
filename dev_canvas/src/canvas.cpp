@@ -17,6 +17,10 @@ namespace canvas {
     Canvas::Canvas( const Canvas & clone )
     {
         // TODO
+        m_width = clone.m_width;
+        m_height = clone.m_height;
+        m_line_thikness = clone.m_line_thikness;
+        m_pixels = clone.buffer();
     }
 
 
@@ -34,6 +38,9 @@ namespace canvas {
     void Canvas::clear( const Color& color )
     {
         // TODO
+        for( size_t i = 0; i < width(); i++ )
+            for( size_t j = 0; j < height(); j++ )
+                pixel(i, j, color);
     }
 
     /*!
@@ -43,7 +50,15 @@ namespace canvas {
      */
     Color Canvas::pixel( coord_type x, coord_type y ) const
     {
-        // TODO
+        if( x >= width() or y >= height() )
+        {
+            throw std::invalid_argument("Valor fora da imagem!\n");
+        }
+
+        return Color( m_pixels[(y * width()*3 + (x*3)) + 0],
+                      m_pixels[(y * width()*3 + (x*3)) + 1],
+                      m_pixels[(y * width()*3 + (x*3)) + 2] 
+                    );
     }
 
     /*!
@@ -54,6 +69,10 @@ namespace canvas {
     void Canvas::pixel( coord_type x, coord_type y, const Color& c )
     {
         // TODO
+        m_pixels[(y * width()*3 + (x*3)) + 0] = c.channels[0];
+        m_pixels[(y * width()*3 + (x*3)) + 1] = c.channels[1];
+        m_pixels[(y * width()*3 + (x*3)) + 2] = c.channels[2]; 
+
     }
 
 
@@ -65,6 +84,13 @@ namespace canvas {
     void Canvas::hline( coord_type x, coord_type y, size_t length, const Color& color )
     {
         // TODO
+        for( size_t j = 0; j < thickness(); j++ )
+        {
+            for( size_t i = x; i < x + length; i++ )
+            {
+                pixel( i, y + j, color );
+            }
+        }
     }
 
     /*!
@@ -75,6 +101,13 @@ namespace canvas {
     void Canvas::vline( coord_type x, coord_type y, size_t length, const Color& color )
     {
         // TODO
+        for( size_t j = 0; j < thickness(); j++ )
+        {
+            for( size_t i = y; i < y + length; i++ )
+            {
+                pixel( x + j, i, color );
+            }
+        }
     }
 
     /*!
@@ -87,6 +120,10 @@ namespace canvas {
     void Canvas::box( coord_type x, coord_type y, size_t width, size_t height , const Color& color)
     {
         // TODO
+        for( size_t i = y; i < y + height - thickness() + 1; i++ )
+        {
+            hline( x, i, width, color );
+        }
     }
 }
 

@@ -1,0 +1,3 @@
+/home/noe/Downloads/Canvas/build_canvas/CMakeFiles/rebuild_cache.dir
+/home/noe/Downloads/Canvas/build_canvas/CMakeFiles/edit_cache.dir
+/home/noe/Downloads/Canvas/build_canvas/CMakeFiles/dcanvas.dir

@@ -20,6 +20,7 @@ int main(void)
     coord_type orig_x{100}, orig_y{100};
     // Vamos utilizar uma linha com 3 pixels de largura.
     c.thickness( 3 );
+
     // Um retângulo pode ser formado através do desenho de 4 linhas.
     c.hline( orig_x, orig_x, 300, RED );
     c.vline( orig_x, orig_y, 200, STEEL_BLUE );
