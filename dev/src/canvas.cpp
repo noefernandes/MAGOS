@@ -23,7 +23,7 @@ namespace canvas {
         m_line_thikness = clone.m_line_thikness;
         delete m_pixels;
         m_pixels = new unsigned char[clone.m_height * clone.m_width * 3];
-        std::memmove(m_pixels, clone.m_pixels, ( clone.m_height * clone.m_width * 3 ));
+        std::memmove( m_pixels, clone.m_pixels, ( clone.m_height * clone.m_width * 3 ));
     }
 
 
