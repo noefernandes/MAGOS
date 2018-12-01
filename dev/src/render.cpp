@@ -7,27 +7,26 @@ void Render::draw( const char *name_arq )
 {
 	canvas::Canvas c( width_render, height_render );
 
-	size_t x = 0;
-	size_t limite = 100;
-	
-	//Conta o valor máximo de x para que o labirinto não atravesse a imagem.
-	while( (x * maze->get_width() < (width_render - limite)) and (x * maze->get_height() < (height_render - limite)) )
+	size_t limage = width_render - width_render*10/100;
+	size_t aimage = height_render - height_render*10/100;
+	size_t line;
+
+	if( maze->get_height() >= maze->get_width() )
 	{
-		x++;
+		line = aimage/maze->get_height();
+	}else
+	{
+		line = limage/maze->get_width();
 	}
-
-	//Valores iniciais dos eixos.
-	size_t eixox = ( width_render - maze->get_width() * x )/2;
-	size_t eixoy = ( height_render - maze->get_height() * x)/2;
-
-	//Plano de fundo.
-	c.box( eixox, eixoy, x * maze->get_width(), x * maze->get_height(), canvas::DEEP_SKY_BLUE );
-
-	//Guarda o ponto inicial no eixo x.
-	size_t inicio_x = eixox;
-	size_t inicio_y = eixoy;
 	
-	//Desenha as paredes do labirinto.
+	//c.box((width_render - line*maze->get_width())/2, (height_render - line*maze->get_height())/2, line*maze->get_width(), line*maze->get_height(), canvas::RED );
+
+	size_t inicio_x = ( width_render - line*maze->get_width() )/2;
+	size_t inicio_y = ( height_render - line*maze->get_height() )/2;
+	size_t eixox;
+	size_t eixoy = inicio_y;
+
+
 	for( size_t i = 0; i < maze->get_height(); i++ )
 	{
 		eixox = inicio_x;
@@ -35,38 +34,38 @@ void Render::draw( const char *name_arq )
 		{
 			if( maze->has_top_wall( j, i ) )
 			{
-				c.hline( eixox, eixoy, x, canvas::RED );
+				c.hline( eixox, eixoy, line, canvas::RED );
 			}
 			
 			if( maze->has_left_wall( j, i ) )
 			{
-				c.vline( eixox, eixoy, x, canvas::RED );
+				c.vline( eixox, eixoy, line, canvas::RED );
 			}
 
-			eixox += x;
+			eixox += line;
 		}
 
-		eixoy += x;
+		eixoy += line;
 	}
 
 	for( size_t i = 0; i < maze->get_height(); i++ )
 	{
 		if( maze->has_right_wall( maze->get_width() - 1, i ) )
 		{
-			c.vline( eixox, inicio_y, x, canvas::RED );
+			c.vline( eixox, inicio_y, line, canvas::RED );
 		}
 
-		inicio_y += x;
+		inicio_y += line;
 	}
 
 	for( size_t i = 0; i < maze->get_width(); i++ )
 	{
 		if( maze->has_bottom_wall( i, maze->get_height() - 1 ) )
 		{
-			c.hline( inicio_x, inicio_y, x, canvas::RED );
+			c.hline( inicio_x, inicio_y, line, canvas::RED );
 		}
 
-		inicio_x += x;
+		inicio_x += line;
 	}
 	
 	
