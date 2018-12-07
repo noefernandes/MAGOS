@@ -1,7 +1,9 @@
 #ifndef MAGOSGAME_H
 #define MAGOSGAME_H
 
-#include "/include/render.h"
+#include "../include/canvas.h"
+#include "../include/render.h"
+#include "../include/maze.h"
 
 namespace mzr{
 
@@ -11,20 +13,20 @@ namespace mzr{
 			
 			struct Result_type{
 				size_t type;
-				char *msg;
-			}
+				std::string msg;
+			};
 
-			enum game_state_e{
-				size_t OK = 0;
-				size_t ERROR = 1;
-				size_t BUILDING = 2;
-				size_t SOLVING = 3;
-			}
+			enum game_state_e: size_t{
+				OK = 0,
+				ERROR = 1,
+				BUILDING = 2,
+				SOLVING = 3,
+				DONE = 4
+			};
 
-			MagosGame( Maze *m /*, Builder *b, Solver *s*/ )
-				: mz( m ) /*, bd( b ), sv( s ) */;
-			
-			~MagosGame();
+			MagosGame() = default;
+		    
+			~MagosGame() = default;
 
 			//Mostra uma apresentação na tela.
 			void welcome( void );
@@ -42,10 +44,11 @@ namespace mzr{
 
 		private:
 			
-			Maze *mz;
+			canvas::Canvas *cv;
+			mzr::Maze *mz;
 			//Builder *bd;
 			//Solver *sv;
-	}
+	};
 }
 
 

@@ -7,7 +7,7 @@
 #include <cstdlib> // EXIT_SUCCESS
 #include <iostream> // cerr
 
-#include "../include/magos.h"
+#include "../include/magosgame.h"
 
 int main( int argc, char *argv[] )
 {
@@ -23,12 +23,13 @@ int main( int argc, char *argv[] )
     }
 
     // The Game Loop.
-    while( not mg.game_over() )
+    /*while( not mg.game_over() )
     {
         mg.process_events();
         mg.update();
         mg.render();
     }
+    */
 
     return EXIT_SUCCESS;
 }

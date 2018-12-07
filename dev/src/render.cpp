@@ -19,13 +19,24 @@ void Render::draw( const char *name_arq )
 	{
 		line = limage/maze->get_width();
 	}
+
+	while( line * maze->get_height() > aimage )
+	{
+		line--;
+	}
+
+	while( line * maze->get_width() > limage )
+	{
+		line--;
+	}
 	
-	//c.box((width_render - line*maze->get_width())/2, (height_render - line*maze->get_height())/2, line*maze->get_width(), line*maze->get_height(), canvas::RED );
 
 	size_t inicio_x = ( width_render - line*maze->get_width() )/2;
 	size_t inicio_y = ( height_render - line*maze->get_height() )/2;
 	size_t eixox;
 	size_t eixoy = inicio_y;
+
+	//c.box( inicio_x, inicio_y, line*maze->get_width(), line*maze->get_height(), canvas::LIGHT_BLUE );
 
 
 	for( size_t i = 0; i < maze->get_height(); i++ )

@@ -33,7 +33,7 @@ namespace mzr{
 
 
 			//Construtor
-			Maze( size_t w = 0, size_t h = 0 )
+			Maze( size_t w = 20, size_t h = 20 )
 				: width{ w }, 
 				height{ h }, 
 				maze{ new Cell[ width * height ]}{ /* empty */ }

@@ -40,7 +40,7 @@ namespace canvas {
              * @param w_ The canvas width (in pixels).
              * @param h_ The canvas height (in pixels).
              */
-            Canvas( size_t w=0, size_t h=0 )
+            Canvas( size_t w=800, size_t h=600 )
                 : m_width{w}, m_height{h},
                   m_pixels{  new component_t [ m_height * m_width * 3 ] },
                   m_line_thikness{1}
