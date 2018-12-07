@@ -14,7 +14,8 @@ void Render::draw( const char *name_arq )
 	if( maze->get_height() >= maze->get_width() )
 	{
 		line = aimage/maze->get_height();
-	}else
+	}
+	else
 	{
 		line = limage/maze->get_width();
 	}
