@@ -10,11 +10,6 @@ namespace mzr{
 	class MagosGame{
 
 		public:
-			
-			struct Result_type{
-				size_t type;
-				std::string msg;
-			};
 
 			enum game_state_e: size_t{
 				OK = 0,
@@ -24,16 +19,20 @@ namespace mzr{
 				DONE = 4
 			};
 
-			MagosGame() = default;
-		    
-			~MagosGame() = default;
+			//Mostra o estágio atual do objeto. 
+			size_t type;
+			//Mensagem a ser mostrada.
+			std::string msg;
+
+			~MagosGame(){}
 
 			//Mostra uma apresentação na tela.
 			void welcome( void );
+			
 			//Verifica se o jogo acabou.
 			bool game_over( void );
 			//Inicia o objeto MagosGame e retorna uma struct com o estado atual do jogo.
-			Result_type initialize( int argc, char **argv );
+			MagosGame& initialize( int argc, char **argv );
 			//O jogo não possui eventos.
 			void process_events( void );
 			//Necessita do builder.
@@ -41,13 +40,17 @@ namespace mzr{
 			//Desenha o labirinto na imagem.
 			void render( void );
 
+			Maze get_maze( void ){ return *maze; }
+
+			
+
 
 		private:
 			
-			canvas::Canvas *cv;
-			mzr::Maze *mz;
-			//Builder *bd;
-			//Solver *sv;
+			Maze *maze;
+			size_t width_img;
+			size_t height_img;
+			//Builder *builder;
 	};
 }
 

@@ -33,7 +33,7 @@ namespace mzr{
 
 
 			//Construtor
-			Maze( size_t w = 20, size_t h = 20 )
+			Maze( size_t w, size_t h )
 				: width{ w }, 
 				height{ h }, 
 				maze{ new Cell[ width * height ]}{ /* empty */ }
@@ -43,6 +43,7 @@ namespace mzr{
 			{
 				delete[] maze;
 			}
+			
 
 			//Construtor cópia
 			Maze( const Maze & );
@@ -67,6 +68,8 @@ namespace mzr{
 			bool bottom_neighbor_has_wall( size_t x, size_t y );
 			bool left_neighbor_has_wall( size_t x, size_t y );
 			bool right_neighbor_has_wall( size_t x, size_t y );
+			void set_width( size_t value );
+			void set_height( size_t value );
 
 
 

@@ -16,6 +16,10 @@ class Render{
 		~Render(){}
 
 		void draw( const char *name_arq );
+		void set_width( size_t w );
+		void set_height( size_t h );
+		size_t get_width( void ){ return width_render; }
+		size_t get_height( void ){ return height_render; }
 
 	private:
 		Maze *maze;

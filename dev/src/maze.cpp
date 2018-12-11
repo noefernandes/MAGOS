@@ -218,4 +218,15 @@ namespace mzr{
 
 		return maze[ width * y + ( x + 1 ) ].LeftWall;
 	}
+
+
+	void Maze::set_width( size_t value )
+	{
+		width = value; 
+	}
+
+	void Maze::set_height( size_t value )
+	{
+		height = value;
+	}
 }

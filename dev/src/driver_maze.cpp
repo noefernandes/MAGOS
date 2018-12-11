@@ -9,14 +9,14 @@ using namespace mzr;
 int main()
 {
 	//Cria labirinto 5 x 7
-	Maze m( 199, 199 );
+	Maze m( 12, 12 );
 
 	//Construtor do render e passando o endereço de mazer
-	Render render( &m, 300, 300 );
+	Render render( &m, 800, 600 );
 
 	//Derrubando as paredes das células informadas
-	m.knock_down( 1, 0 , Maze::side::RightWall );
-	m.knock_down( 4, 1 , Maze::side::RightWall );
+	//m.knock_down( 1, 0 , Maze::side::RightWall );
+	//m.knock_down( 4, 1 , Maze::side::RightWall );
 	//m.knock_down( 4, 2 , Maze::side::RightWall );
 	//m.knock_down( 4, 3 , Maze::side::RightWall );
 	//m.knock_down( 4, 4 , Maze::side::RightWall );
