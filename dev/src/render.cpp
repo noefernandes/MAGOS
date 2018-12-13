@@ -96,13 +96,3 @@ void Render::draw( const char *name_arq )
                 	wid*3);    
 }
 
-void Render::set_width( size_t w )
-{
-	width_render = w;
-}
-
-void Render::set_height( size_t h )
-{
-	height_render = h;
-}
-

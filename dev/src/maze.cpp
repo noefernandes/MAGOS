@@ -70,7 +70,7 @@ namespace mzr{
 
 				if( !is_outside( x - 1, y) )
 				{
-					maze[ width * y + ( x - 1 )].BottomWall = false;
+					maze[ width * y + ( x - 1 )].RightWall = false;
 				}
 
 				break;
@@ -106,6 +106,7 @@ namespace mzr{
 
 		return maze[ width * y + x ].Visited;
 	}
+
 
 	bool Maze::has_top_wall( size_t x, size_t y )
 	{
@@ -219,14 +220,13 @@ namespace mzr{
 		return maze[ width * y + ( x + 1 ) ].LeftWall;
 	}
 
+	size_t Maze::get_coord( size_t x, size_t y )
+	{ 
+		if(is_outside( x, y ))
+		{
+			throw std::invalid_argument("Valores de eixos inválidos!\n"); 
+		}
 
-	void Maze::set_width( size_t value )
-	{
-		width = value; 
-	}
-
-	void Maze::set_height( size_t value )
-	{
-		height = value;
+		return width*y + x;
 	}
 }
