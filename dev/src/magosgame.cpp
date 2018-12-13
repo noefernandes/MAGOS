@@ -5,6 +5,7 @@
 #include "../include/maze.h"
 #include "../include/canvas.h"
 #include "../include/render.h"
+#include "../include/builder.h"
 #include <sstream>
 
 namespace mzr{
@@ -123,6 +124,13 @@ namespace mzr{
 			msg = "Dimensões não funcionais de labirinto!\n";
 		}
 
+		//Criando um novo builder e adicionando-o ao campo privado.
+		Builder *b = new Builder( maze );
+		builder = b;
+
+		builder->set_width( width_img );
+		builder->set_height( height_img );
+
 		return *this;
 	}
 
@@ -135,14 +143,35 @@ namespace mzr{
 	void MagosGame::update( void )
 	{
 		//Máquina de estado.
-		//Builder e solver.
+		if( builder->is_not_complete() )
+		{
+			type = game_state_e::BUILDING;
+		
+		}
+		/*
+		else if( not solver->is_complete() )
+		{
+			type = game_state_e::SOLVING;
+		}
+		*/
+		else
+		{
+			type = game_state_e::DONE;
+		}
+	}
+
+	bool MagosGame::game_over( void )
+	{
+		return type == game_state_e::DONE;
 	}
 
 	void MagosGame::render( void )
 	{
+		
+		builder->build();
 		//Desenha o labirinto no estado atual.
-		Render r( maze, width_img, height_img );
-		r.draw("img1");
+		//Render r( maze, width_img, height_img );
+		//r.draw("img1");
 	}
 	
 }

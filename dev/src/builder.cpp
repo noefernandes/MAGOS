@@ -1,5 +1,8 @@
 #include "../include/builder.h"
 #include "../include/maze.h"
+#include "../include/render.h"
+#include <cstring>
+#include <sstream>
 
 void Builder::to_see( void )
 {
@@ -29,7 +32,7 @@ size_t Builder::generate_random( size_t inicio, size_t fim )
 	return value;
 }
 
-bool Builder::is_complete( void )
+bool Builder::is_not_complete( void )
 {
 	for(size_t i = 0; i < matrix.size(); i++)
 	{
@@ -57,11 +60,12 @@ void Builder::build( void )
 {
 
 	// Versão tentada 1.
-	
-	while( is_complete() )
-	{
+	Render r( maze, b_width, b_height );
+	std::string temp;
+	char msg[20];
 
-		size_t aux;
+	if( is_not_complete() )
+	{
 		size_t randomwall = rand()%4;
 		size_t x = generate_random( 0, maze->get_width() - 1 );
 		size_t y = generate_random( 0, maze->get_height() - 1 );
@@ -102,6 +106,18 @@ void Builder::build( void )
 			set_equal_number( std::max( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x+1,y)]),
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x+1,y)]));
 		}
+
+		std::istringstream iss(std::to_string(cont_img));
+		strcpy( msg, "Building_");
+		iss >> temp;
+		const char *num = temp.c_str();
+
+		strcat( msg, num );
+
+		r.draw( msg );
+
+		iss.clear();
+		cont_img++;
 				
 	} 
 }

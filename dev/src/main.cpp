@@ -24,13 +24,11 @@ int main( int argc, char *argv[] )
 
     // The Game Loop.
     
-    int i = 0;
-    while( /*not mg.game_over()*/ i < 1 )
+    while( not mg.game_over() )
     {
         mg.process_events();
         mg.update();
         mg.render();
-        i++;
     }
 
 

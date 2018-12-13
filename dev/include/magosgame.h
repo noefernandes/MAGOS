@@ -9,6 +9,7 @@
 #include "../include/canvas.h"
 #include "../include/render.h"
 #include "../include/maze.h"
+#include "../include/builder.h"
 
 /*! Namespace que guarda os compontentes da classe MagosGame. */
 namespace mzr{
@@ -59,8 +60,8 @@ namespace mzr{
 			size_t width_img;
 			/*! Recebe a altura fornecida para a imagem. */ 
 			size_t height_img;
-			
-			//Builder *builder;
+			/*! Ponteiro para o builder. */
+			Builder *builder;
 			//Solver *solver;
 	};
 }

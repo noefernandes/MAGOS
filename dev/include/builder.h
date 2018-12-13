@@ -38,7 +38,7 @@ class Builder{
 		/*! Mostra na tela numericamente o estado atual do maze. */
 		void to_see( void );
 		/*! Verifica se o processo de construção já foi finalizado (se todos os numeros do vetor são iguais*/
-		bool is_complete( void );
+		bool is_not_complete( void );
 		/*! Gera um número aleatório entre [inicio; fim]. */
 		size_t generate_random( size_t inicio, size_t fim );
 		/*! Função principal que constroi os caminhos no maze. */
@@ -48,11 +48,21 @@ class Builder{
 		recebem o valor da célula de menor valor. */
 		void set_equal_number( size_t _old, size_t _new );
 
+		void set_width( size_t value ){ b_width = value; }
+		void set_height( size_t value ){ b_height = value; }
+
 	private:
 		/*! Vector com a identificação numérica de cada célula. */
 		std::vector<size_t> matrix;
 		/*! Ponteiro para o maze. */
 		Maze *maze;
+		/*! Tamanho da imagem na horizontal. */
+		size_t b_width;
+		/*! Tamanho da imagem na vertical. */
+		size_t b_height;
+		/*! Indices da sequencia de imagens. */
+		size_t cont_img = 1;
+
 
 };
 
