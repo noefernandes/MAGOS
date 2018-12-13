@@ -20,6 +20,8 @@ namespace mzr{
 		std::cout << "$" << std::setw(50) << std::setfill('%') << "$" << "\n";
 		std::cout << "$" << std::setw(50) << std::setfill('%') << "$" << "\n";
 		std::cout << "\n";
+
+		std::cout << "Gerando Maze...\n";
 	}
 
 
@@ -149,7 +151,7 @@ namespace mzr{
 		
 		}
 		/*
-		else if( not solver->is_complete() )
+		else if( solver->is_not_complete() )
 		{
 			type = game_state_e::SOLVING;
 		}

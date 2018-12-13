@@ -1,8 +1,3 @@
-/*!
- * Canvas class implementation.
- * @file canvas.cpp
- */
-
 #include <stdexcept>
 #include <iostream>
 #include <cstring>

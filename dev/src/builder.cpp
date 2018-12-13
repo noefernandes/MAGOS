@@ -80,7 +80,7 @@ void Builder::build( void )
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y-1)]));
 
 			std::istringstream iss(std::to_string(cont_img));
-			strcpy( msg, "Building_");
+			strcpy( msg, "building_");
 			iss >> temp;
 			const char *num = temp.c_str();
 
@@ -102,7 +102,7 @@ void Builder::build( void )
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y+1)]));
 
 			std::istringstream iss(std::to_string(cont_img));
-			strcpy( msg, "Building_");
+			strcpy( msg, "building_");
 			iss >> temp;
 			num = temp.c_str();
 
@@ -123,7 +123,7 @@ void Builder::build( void )
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x-1,y)]));
 
 			std::istringstream iss(std::to_string(cont_img));
-			strcpy( msg, "Building_");
+			strcpy( msg, "building_");
 			iss >> temp;
 			num = temp.c_str();
 
@@ -146,7 +146,7 @@ void Builder::build( void )
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x+1,y)]));
 
 			std::istringstream iss(std::to_string(cont_img));
-			strcpy( msg, "Building_");
+			strcpy( msg, "building_");
 			iss >> temp;
 			num = temp.c_str();
 

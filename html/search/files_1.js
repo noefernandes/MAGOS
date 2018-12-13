@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['magosgame_2eh',['magosgame.h',['../magosgame_8h.html',1,'']]],
-  ['maze_2eh',['maze.h',['../maze_8h.html',1,'']]]
+  ['canvas_2eh',['canvas.h',['../canvas_8h.html',1,'']]],
+  ['common_2eh',['common.h',['../common_8h.html',1,'']]]
 ];

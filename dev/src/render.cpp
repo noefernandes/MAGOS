@@ -11,6 +11,8 @@ void Render::draw( const char *name_arq )
 	size_t aimage = height_render - height_render*10/100;
 	size_t line;
 
+	
+	//Adequa o tamanho da linha.
 	if( maze->get_height() >= maze->get_width() )
 	{
 		line = aimage/maze->get_height();
@@ -33,11 +35,17 @@ void Render::draw( const char *name_arq )
 
 	size_t inicio_x = ( width_render - line*maze->get_width() )/2;
 	size_t inicio_y = ( height_render - line*maze->get_height() )/2;
+	size_t ini_x = inicio_x;
+	size_t ini_y = inicio_y;
 	size_t eixox;
 	size_t eixoy = inicio_y;
 
-	c.box( inicio_x + line - line*60/100, inicio_y + line - line*60/100, 
-			 line - 2*line*60/100, line - 2*line*60/100 , canvas::LIGHT_BLUE );
+	//Plano de fundo.
+	c.box( inicio_x, inicio_y, line*maze->get_width(), line*maze->get_height(), canvas::LIGHT_GREY );
+
+	//Quadrado na posição (0,0)
+	c.box( inicio_x + line / 4, inicio_y + line /4, 
+			 line / 2, line/2 , canvas::LIGHT_BLUE );
 
 
 	for( size_t i = 0; i < maze->get_height(); i++ )
@@ -47,12 +55,12 @@ void Render::draw( const char *name_arq )
 		{
 			if( maze->has_top_wall( j, i ) )
 			{
-				c.hline( eixox, eixoy, line, canvas::RED );
+				c.hline( eixox, eixoy, line, canvas::BLACK );
 			}
 			
 			if( maze->has_left_wall( j, i ) )
 			{
-				c.vline( eixox, eixoy, line, canvas::RED );
+				c.vline( eixox, eixoy, line, canvas::BLACK );
 			}
 
 			eixox += line;
@@ -65,7 +73,7 @@ void Render::draw( const char *name_arq )
 	{
 		if( maze->has_right_wall( maze->get_width() - 1, i ) )
 		{
-			c.vline( eixox, inicio_y, line, canvas::RED );
+			c.vline( eixox, inicio_y, line, canvas::BLACK );
 		}
 
 		inicio_y += line;
@@ -75,13 +83,16 @@ void Render::draw( const char *name_arq )
 	{
 		if( maze->has_bottom_wall( i, maze->get_height() - 1 ) )
 		{
-			c.hline( inicio_x, inicio_y, line, canvas::RED );
+			c.hline( inicio_x, inicio_y, line, canvas::BLACK );
 		}
 
 		inicio_x += line;
 	}
-	
 
+	//Quadrado na ultima célula.
+	c.box( line / 4 + ini_x + maze->get_width()*line - line,
+		   line / 4 + ini_y + maze->get_height()*line - line, 
+		   line / 2, line / 2 , canvas::RED );
 	
 
 	
