@@ -31,8 +31,8 @@ namespace mzr{
 
 		if( argc == 1 )
 		{
-			w_maze = 15;
-			h_maze = 15;
+			w_maze = 5;
+			h_maze = 7;
 			width_img = 800;
 			height_img = 600;
 		}

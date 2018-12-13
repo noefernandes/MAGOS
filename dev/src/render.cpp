@@ -36,7 +36,8 @@ void Render::draw( const char *name_arq )
 	size_t eixox;
 	size_t eixoy = inicio_y;
 
-	//c.box( inicio_x, inicio_y, line*maze->get_width(), line*maze->get_height(), canvas::LIGHT_BLUE );
+	c.box( inicio_x + line - line*90/100, inicio_y + line - line*90/100, 
+			 line - 2*line*10/100, line - 2*line*10/100 , canvas::LIGHT_BLUE );
 
 
 	for( size_t i = 0; i < maze->get_height(); i++ )
@@ -80,6 +81,7 @@ void Render::draw( const char *name_arq )
 		inicio_x += line;
 	}
 	
+
 	
 
 	
