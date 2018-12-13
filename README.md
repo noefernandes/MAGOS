@@ -6,12 +6,12 @@
 
 O `MAGOS` é um jogo não interativo que tem o objetivo de mostrar sequencialmente o processo de construção e solução de um labirinto. Nesta aplicação foram usadas um conjunto de classes com bastantes relacionamentos entre si, todas manipuladas pela classe principal MagosGame.
 
-`Canvas`: Responsável pelo processo de desenho de figuras.
-`Maze`: Responsável por guardar as células e manipular seus estados.
-`Render`: Responsável por desenhar todo o labirinto em seu estado atual, usando o Maze e o canvas como auxílio.
-`Builder`: Responsável por dar a cara de labirinto ao projeto. Destruindo parede por parede até ter um labirinto correto.
-`Solver`: Responsável por encontrar a solução do labirinto.
-`MagosGame`: Organiza todas as classes.
+1. `Canvas`: Responsável pelo processo de desenho de figuras.
+2. `Maze`: Responsável por guardar as células e manipular seus estados.
+3. `Render`: Responsável por desenhar todo o labirinto em seu estado atual, usando o Maze e o canvas como auxílio.
+4. `Builder`: Responsável por dar a cara de labirinto ao projeto. Destruindo parede por parede até ter um labirinto correto.
+5. `Solver`: Responsável por encontrar a solução do labirinto.
+6. `MagosGame`: Organiza todas as classes.
 
 Problemas encontrados:
 
