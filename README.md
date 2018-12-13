@@ -20,5 +20,6 @@ Problemas encontrados:
 ## Compilação
 
 - `g++ -Wall -std=c++11 src/maze.cpp src/canvas.cpp src/render.cpp src/builder.cpp src/main.cpp src/magosgame.cpp -I include/`
+- `./a.out larg_maze alt_maze larg_img alt_img`
 
 
