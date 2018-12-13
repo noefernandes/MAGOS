@@ -63,6 +63,7 @@ void Builder::build( void )
 	Render r( maze, b_width, b_height );
 	std::string temp;
 	char msg[20];
+	const char *num;
 
 	if( is_not_complete() )
 	{
@@ -77,6 +78,18 @@ void Builder::build( void )
 
 			set_equal_number( std::max( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y-1)]),
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y-1)]));
+
+			std::istringstream iss(std::to_string(cont_img));
+			strcpy( msg, "Building_");
+			iss >> temp;
+			const char *num = temp.c_str();
+
+			strcat( msg, num );
+
+			r.draw( msg );
+
+			iss.clear();
+			cont_img++;
 			
 		}
 
@@ -87,6 +100,18 @@ void Builder::build( void )
 			
 			set_equal_number( std::max( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y+1)]),
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x,y+1)]));
+
+			std::istringstream iss(std::to_string(cont_img));
+			strcpy( msg, "Building_");
+			iss >> temp;
+			num = temp.c_str();
+
+			strcat( msg, num );
+
+			r.draw( msg );
+
+			iss.clear();
+			cont_img++;
 		}
 
 		if( randomwall == Maze::side::LeftWall and x > 0 and
@@ -96,6 +121,20 @@ void Builder::build( void )
 			
 			set_equal_number( std::max( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x-1,y)]),
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x-1,y)]));
+
+			std::istringstream iss(std::to_string(cont_img));
+			strcpy( msg, "Building_");
+			iss >> temp;
+			num = temp.c_str();
+
+			strcat( msg, num );
+
+			r.draw( msg );
+
+			iss.clear();
+			cont_img++;
+
+
 		}
 
 		if( randomwall == Maze::side::RightWall and x < maze->get_width() - 1 and
@@ -105,19 +144,19 @@ void Builder::build( void )
 
 			set_equal_number( std::max( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x+1,y)]),
 							  std::min( matrix[maze->get_coord(x,y)], matrix[maze->get_coord(x+1,y)]));
+
+			std::istringstream iss(std::to_string(cont_img));
+			strcpy( msg, "Building_");
+			iss >> temp;
+			num = temp.c_str();
+
+			strcat( msg, num );
+
+			r.draw( msg );
+
+			iss.clear();
+			cont_img++;
 		}
-
-		std::istringstream iss(std::to_string(cont_img));
-		strcpy( msg, "Building_");
-		iss >> temp;
-		const char *num = temp.c_str();
-
-		strcat( msg, num );
-
-		r.draw( msg );
-
-		iss.clear();
-		cont_img++;
 				
 	} 
 }
