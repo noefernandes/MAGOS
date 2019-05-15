@@ -133,6 +133,9 @@ namespace mzr{
 		builder->set_width( width_img );
 		builder->set_height( height_img );
 
+		Render r( maze, width_img, height_img );
+		r.draw("building_0");
+
 		return *this;
 	}
 
@@ -171,9 +174,6 @@ namespace mzr{
 	{
 		
 		builder->build();
-		//Desenha o labirinto no estado atual.
-		//Render r( maze, width_img, height_img );
-		//r.draw("img1");
 	}
 	
 }

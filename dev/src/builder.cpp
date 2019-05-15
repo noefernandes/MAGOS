@@ -82,7 +82,7 @@ void Builder::build( void )
 			std::istringstream iss(std::to_string(cont_img));
 			strcpy( msg, "building_");
 			iss >> temp;
-			const char *num = temp.c_str();
+			num = temp.c_str();
 
 			strcat( msg, num );
 

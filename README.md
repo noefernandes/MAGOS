@@ -13,12 +13,9 @@ O `MAGOS` é um jogo não interativo que tem o objetivo de mostrar sequencialmen
 5. `Solver`: Responsável por encontrar a solução do labirinto.
 6. `MagosGame`: Organiza todas as classes.
 
-Problemas encontrados:
-
-1. A classe Solver não foi criada e consequentemente o programa não encontra a solução do labirinto. 
-
 ## Compilação
 
+No diretório MAGOS/dev:
 - `g++ -Wall -std=c++11 src/maze.cpp src/canvas.cpp src/render.cpp src/builder.cpp src/main.cpp src/magosgame.cpp -I include/`
 - `./a.out larg_maze alt_maze larg_img alt_img`
 
